@@ -15,7 +15,7 @@ const
 	{resolve} = require('@pzlr/build-core');
 
 const
-	cpus = os.cpus();
+	cpus = os.cpus().length;
 
 console.log(cpus);
 
