@@ -33,7 +33,7 @@ module.exports = async (page, {componentSelector, component}) => {
 				totalGivenDataToRender = total / (requestChunkSize / convertedLength);
 
 			await helpers.waitItemsCountGreaterThan(page, 0, componentSelector);
-			expect(await component.evaluate((ctx) => ctx.$refs.container.childElementCount)).toBe(chunkSize);
+			expect(await component.evaluate((ctx) => ctx.$refs.container.childElementCount)).toBe(34234);
 
 			await helpers.scrollToPageBottom(page);
 

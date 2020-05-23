@@ -211,14 +211,6 @@ module.exports = function (gulp = require('gulp')) {
 				});
 		});
 
-		const sleep = () => new Promise((res, rej) => {
-			setTimeout(() => {
-				res();
-			}, 30000);
-		});
-
-		await sleep();
-
 		// Build Components
 		const
 			buildCache = {},
