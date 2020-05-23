@@ -345,8 +345,24 @@ async function getBrowserInstance(browserType) {
 		chromium: '--chromiumWsEndpoint'
 	};
 
+	const connect = (retry = 5) => {
+		return new Promise((res, rej) => {
+			playwright[browserType].connect({wsEndpoint: args[endpointMap[browserType]]})
+				.then(res)
+				.catch(() => {
+					if (retry === 0) {
+						throw new Error('Could not connect to browser');
+					}
+
+					retry--;
+					return connect(retry);
+				});
+		})
+
+	}
+
 	if (args[endpointMap[browserType]]) {
-		return await playwright[browserType].connect({wsEndpoint: args[endpointMap[browserType]]});
+		return await connect();
 	}
 
 	return await playwright[browserType].launch();
