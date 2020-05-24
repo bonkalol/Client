@@ -6,7 +6,6 @@ jobs:
   # Run components tests
   components:
     runs-on: windows-latest
-    needs: [install]
 
     strategy:
       matrix:
@@ -32,7 +31,6 @@ jobs:
   # Run typescript check
   typescript:
     runs-on: windows-latest
-    needs: [install]
 
     strategy:
       matrix:
