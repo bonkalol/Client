@@ -42,7 +42,7 @@ jobs:
     steps:
       - uses: actions/download-artifact@v2
         with:
-          build-artifact
+          name: build-artifact
 
       - name: Run components tests
         run: npx gulp test:components
