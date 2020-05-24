@@ -12,7 +12,6 @@ jobs:
         node-version: [14.1]
 
     steps:
-      - name: Checkout
       - uses: actions/checkout@v2
 
       - name: Use Node.js ${{ matrix.node-version }}
@@ -20,5 +19,21 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
+      # - name: Install dependencies
+      #   run: npm ci
+
+      # - name: build tsconfig
+      #   run: npx gulp build:tsconfig
+
+  # Run components tests
+  components:
+    runs-on: windows-latest
+    needs: [install]
+
+    strategy:
+      matrix:
+        node-version: [14.1]
+
+    steps:
+      - name: ls
         run: ls --all
