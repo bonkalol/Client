@@ -37,4 +37,6 @@ jobs:
     steps:
       - name: Test components
       - uses: actions/checkout@v2
+
+      - name: ls
         run: ls --all
