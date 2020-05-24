@@ -38,7 +38,7 @@ jobs:
       - name: Run components tests
         run: npx gulp test:components
 
-  # Run typescripts check
+  # Run typescript check
   typescript:
     runs-on: windows-latest
     needs: [install]
@@ -49,4 +49,4 @@ jobs:
 
     steps:
       - name: Run typescript check
-      run: node ts-check.js
+        run: node ts-check.js
