@@ -37,7 +37,7 @@ jobs:
     steps:
       - name: Run components tests
         # run: npx gulp test:components
-        run: ls -all
+        run: dir
 
   # Run typescript check
   typescript:
@@ -51,4 +51,4 @@ jobs:
     steps:
       - name: Run typescript check
         # run: node ts-check.js
-        run: ls -all
+        run: dir
