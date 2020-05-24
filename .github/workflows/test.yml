@@ -22,19 +22,3 @@ jobs:
 
       - name: Install dependencies
         run: ls --all
-
-      # - name: build tsconfig
-      #   run: npx gulp build:tsconfig
-
-  # Run components tests
-  components:
-    runs-on: windows-latest
-    needs: [install]
-
-    strategy:
-      matrix:
-        node-version: [14.1]
-
-    steps:
-      - name: ls
-        run: ls --all
