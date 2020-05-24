@@ -6,6 +6,7 @@ jobs:
   # Install dependencies
   install:
     runs-on: windows-latest
+
     strategy:
       matrix:
         node-version: [14.1]
@@ -35,8 +36,5 @@ jobs:
         node-version: [14.1]
 
     steps:
-      - name: Test components
-      - uses: actions/checkout@v2
-
       - name: ls
         run: ls --all
