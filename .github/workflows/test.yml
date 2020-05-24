@@ -25,6 +25,11 @@ jobs:
       - name: Build tsconfig
         run: npx gulp build:tsconfig
 
+      - uses: actions/upload-artifact@v2
+        with:
+          name: build-artifact
+          path: ./
+
   # Run components tests
   components:
     runs-on: windows-latest
@@ -35,7 +40,10 @@ jobs:
         node-version: [14.1]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          build-artifact
+
       - name: Run components tests
         run: npx gulp test:components
 
@@ -49,6 +57,10 @@ jobs:
         node-version: [14.1]
 
     steps:
+      - uses: actions/download-artifact@v2
+        with:
+          build-artifact
+
       - uses: actions/checkout@v2
       - name: Run typescript check
         run: node ts-check.js
