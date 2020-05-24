@@ -48,5 +48,5 @@ jobs:
         node-version: [14.1]
 
     steps:
-      - name : Run typescript check
+      - name: Run typescript check
       run: node ts-check.js
